@@ -4,6 +4,7 @@ const menuIcon = document.querySelector('.menu-hamburguer')
 const sidebar = document.querySelector('.mobile-menu')
 const iconCart = document.querySelector('.navbar-shopping-cart')
 const cartDetail = document.querySelector('.product-detail')
+const cardsContainer = document.querySelector('.cards-container')
 
 
 userEmail.addEventListener('click', toggleMenu)
@@ -36,3 +37,93 @@ function cartDetails() {
   }
   cartDetail.classList.toggle('inactive')
 }
+
+const productList = []
+productList.push({
+  name: 'Bike',
+  price: 120,
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  alt: 'Bicicleta negra en fondo de madera.'
+})
+productList.push({
+  name: 'Laptop',
+  price: 1120,
+  image: 'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+  alt: 'Bicicleta negra en fondo de madera.'
+})
+productList.push({
+  name: 'iPhone',
+  price: 840,
+  image: 'https://images.pexels.com/photos/3571093/pexels-photo-3571093.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+  alt: 'Bicicleta negra en fondo de madera.'
+})
+productList.push({
+  name: 'Bike',
+  price: 120,
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  alt: 'Bicicleta negra en fondo de madera.'
+})
+productList.push({
+  name: 'Laptop',
+  price: 1120,
+  image: 'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+  alt: 'Bicicleta negra en fondo de madera.'
+})
+productList.push({
+  name: 'iPhone',
+  price: 840,
+  image: 'https://images.pexels.com/photos/3571093/pexels-photo-3571093.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+  alt: 'Bicicleta negra en fondo de madera.'
+})
+productList.push({
+  name: 'Bike',
+  price: 120,
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  alt: 'Bicicleta negra en fondo de madera.'
+})
+productList.push({
+  name: 'Laptop',
+  price: 1120,
+  image: 'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+  alt: 'Bicicleta negra en fondo de madera.'
+})
+productList.push({
+  name: 'iPhone',
+  price: 840,
+  image: 'https://images.pexels.com/photos/3571093/pexels-photo-3571093.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+  alt: 'Bicicleta negra en fondo de madera.'
+})
+
+/*Product list iteration */
+function renderProducts(items) {
+  for (product of items) {
+    const productCard = document.createElement('div')
+    productCard.classList.add('product-card')
+    
+    const productImg = document.createElement('img')
+    productImg.setAttribute('src', product.image)
+    productImg.setAttribute('alt', product.alt)
+  
+    const productInfo = document.createElement('div')
+    productInfo.classList.add('product-info')
+  
+    const productInfoDiv = document.createElement('div')
+    
+    const productPrice = document.createElement('p')
+    productPrice.innerText = '$' + product.price
+    const productName = document.createElement('p')
+    productName.innerText = product.name
+  
+    const productInfoFigure = document.createElement('figure')
+    const productIconCart = document.createElement('img')
+    productIconCart.setAttribute('src', '../icons/bt_add_to_cart.svg')
+    /*Construction HTML tags */
+    cardsContainer.appendChild(productCard)
+    productCard.append(productImg, productInfo)
+    productInfo.append(productInfoDiv, productInfoFigure)
+    productInfoDiv.append(productPrice, productName)
+    productInfoFigure.appendChild(productIconCart)
+  }
+}
+
+renderProducts(productList)
