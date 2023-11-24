@@ -15,7 +15,7 @@ body {
 }
 
 .inactive{
-  opacity: 0;
+  display: none;
 }
 
 /*Nabbar (General)*/
@@ -98,6 +98,7 @@ nav {
   background-color: var(--white);
   transition: 0.2s ease-in-out;
   box-shadow: 3px 4px 10px rgba(0 0 0 / .2);
+  z-index: 5;
 }
 .desktop-menu ul {
   list-style: none;
@@ -134,7 +135,7 @@ nav {
   transition: 0.3s ease;
   background-color: var(--white);
   left: 0;
-  width: 100%;
+  width: calc(100% - 48px);
 
 }
 .mobile-menu a {
